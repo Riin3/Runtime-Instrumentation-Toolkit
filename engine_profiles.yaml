@@ -1,0 +1,21 @@
+# 这是一个引擎特征配置文件，用于AOB扫描时确定优先扫描的模块。
+# 系统会自动检测当前进程加载了以下列表中的哪些模块，并优先在这些模块中进行扫描。
+
+priority_modules:
+  # Unity Engine (Mono Backend)
+  - UnityPlayer.dll
+  - mono-2.0-bdwgc.dll
+
+  # Unity Engine (IL2CPP Backend)
+  - GameAssembly.dll
+
+  # Unreal Engine (common variations)
+  - UE4Game-Win64-Shipping.exe
+  - UE4Game.exe
+
+  # Godot Engine
+  # - godot.windows.opt.tools.64.exe (example, needs verification)
+
+  # Add other common engine modules or game-specific executables here.
+  # 例如，一些游戏的的核心逻辑可能在主程序中：
+  # - Cyberpunk2077.exe 

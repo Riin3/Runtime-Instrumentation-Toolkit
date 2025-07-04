@@ -1,0 +1,37 @@
+TutorialPlayer:
+  # 结构体成员定义: 用于在捕获基址后计算完整地址
+  members:
+    health: { type: 'int', offset: 0 }
+    mana: { type: 'int', offset: 4 }
+  
+  # 入口点定义: 告诉框架从哪里开始注入
+  entry_point:
+    # 唯一标识符，可以是任意成员
+    member_name: 'health' 
+    # 用于定位修改该成员的 *代码* 的AOB
+    # TODO: 这是一个占位符，需要在后续侦察阶段用真实AOB替换
+    aob: '89 01 8B 42 04 89 41 04' 
+    # AOB对应的指令长度，用于反汇编和JMP覆盖
+    instruction_length: 2
+
+YokaiPlayer:
+  bootstrap_finder:
+    name: gold_finder
+    type: aob
+    aob: 00 00 00 00 01 00 00 00 04 4A E7 00 01 00 00 00
+  self_healing: true
+  finders:
+  - name: gold_finder
+    aob: 00 00 00 00 01 00 00 00 04 4A E7 00 01 00 00 00
+    member: gold
+    primary: true
+  - name: food_finder
+    aob: F0 00 D0 71 89 02 00 00 62 00 00 00 01 00 00 00
+    member: food
+  members:
+    gold:
+      type: int
+      offset: 0
+    food:
+      type: int
+      offset: 4

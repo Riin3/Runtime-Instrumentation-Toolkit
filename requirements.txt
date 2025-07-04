@@ -1,0 +1,7 @@
+pymem
+PyQt5
+psutil
+capstone
+keystone-engine
+PyYAML
+pywin32

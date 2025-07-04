@@ -1,0 +1,17 @@
+2025-07-02 08:33:08,322 - root - INFO - 应用程序启动。
+2025-07-02 08:33:08,336 - root - INFO - 正在初始化主窗口: Modern Memory Analysis Tool v1.0.0-alpha
+2025-07-02 08:33:08,785 - root - INFO - 尝试附加到进程: notepad.exe
+2025-07-02 08:33:08,792 - root - ERROR - 附加到进程 notepad.exe 失败: Could not find process: notepad.exe
+Traceback (most recent call last):
+  File "e:\Chat\Pointer_tracker\app\main.py", line 51, in attach_to_process
+    self.scanner = AdvancedScanner(process_name)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "e:\Chat\Pointer_tracker\app\core\advanced_scanner.py", line 19, in __init__
+    self.pm = pymem.Pymem(process_name)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Chat\Pointer_tracker\app\venv\Lib\site-packages\pymem\__init__.py", line 59, in __init__
+    self.open_process_from_name(process_name, exact_match, ignore_case)
+  File "E:\Chat\Pointer_tracker\app\venv\Lib\site-packages\pymem\__init__.py", line 277, in open_process_from_name
+    raise pymem.exception.ProcessNotFound(process_name)
+pymem.exception.ProcessNotFound: Could not find process: notepad.exe
+2025-07-02 08:34:03,492 - root - INFO - 应用程序退出，退出代码: 0
